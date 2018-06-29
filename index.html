@@ -729,7 +729,7 @@ curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scan
     </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"character_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skill in action"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skill-in-action"</span><span class="p">,</span><span class="w">
@@ -758,11 +758,6 @@ curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scan
             </span><span class="s2">"tipp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="err">...</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empathy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empathy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
@@ -778,7 +773,7 @@ curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scan
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endurance"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empathy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"endurance"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
             </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your physical and psychological endurance is quite good. For this </span><span class="err">\</span><span class="s2">
@@ -794,17 +789,14 @@ curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scan
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profession"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"character_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+        </span><span class="s2">"character_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
-
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
