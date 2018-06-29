@@ -80,7 +80,7 @@ curl "https://api.facemap.com/v2/device/<device_id>/register"
 
 ### GET me
 
-"Me" is a Person Object with the "me" flag set to true. For one device there can only be marked one person as "me".
+"Me" is a Person Object with the "owner" flag set to true. For one device there can only be marked one person as "me".
 
 #### HTTP Request
 
