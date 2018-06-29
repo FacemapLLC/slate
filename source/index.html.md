@@ -478,7 +478,7 @@ curl "https://api.facemap.com/v2/<device_id>/scans/<scan_id>"
     "categories": [
       {
         "title": "Personality",
-        "strongest_traits": [
+        "character_traits": [
           {
             "title": "Skill in action",
             "handle": "skill-in-action",
@@ -507,11 +507,6 @@ curl "https://api.facemap.com/v2/<device_id>/scans/<scan_id>"
             "tipp": ""
           },
           {
-            ...
-          }
-        ],
-        "weakest_traits": [
-          {
             "title": "Empathy",
             "handle": "empathy",
             "score": 43.5,
@@ -527,7 +522,7 @@ curl "https://api.facemap.com/v2/<device_id>/scans/<scan_id>"
           },
           {
             "title": "Endurance",
-            "handle": "empathy",
+            "handle": "endurance",
             "score": 25,
             "order": 1,
             "description": "Your physical and psychological endurance is quite good. For this \
@@ -543,17 +538,14 @@ curl "https://api.facemap.com/v2/<device_id>/scans/<scan_id>"
         ]
       },
       {
-        "title": "Personality",
-        "strongest_traits": [...],
-        "weakest_traits": [...]
+        "title": "Profession",
+        "character_traits": [...],
       },
       {
         "title": "...",
-        "strongest_traits": [...],
-        "weakest_traits": [...]
+        "character_traits": [...],
       }
     ]
-
   }
 }
 
