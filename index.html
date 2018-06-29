@@ -222,27 +222,76 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#facemap-chatacter-analysis-api" class="toc-h2 toc-link" data-title="facemap-chatacter-analysis-api">Facemap Chatacter Analysis API</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#endpoints" class="toc-h1 toc-link" data-title="endpoints">Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#production" class="toc-h2 toc-link" data-title="production">Production</a>
+                  </li>
+                  <li>
+                    <a href="#sandbox" class="toc-h2 toc-link" data-title="sandbox">Sandbox</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#registration" class="toc-h1 toc-link" data-title="registration">Registration</a>
+          </li>
+          <li>
+            <a href="#people" class="toc-h1 toc-link" data-title="people">People</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-me" class="toc-h2 toc-link" data-title="get-me">GET me</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-people" class="toc-h2 toc-link" data-title="get-all-people">GET all people</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#matches" class="toc-h1 toc-link" data-title="matches">Matches</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-matches" class="toc-h2 toc-link" data-title="get-matches">GET matches</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#locations" class="toc-h1 toc-link" data-title="locations">Locations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-location" class="toc-h2 toc-link" data-title="post-location">POST location</a>
+                  </li>
+                  <li>
+                    <a href="#get-locations" class="toc-h2 toc-link" data-title="get-locations">GET locations</a>
+                  </li>
+                  <li>
+                    <a href="#get-address" class="toc-h2 toc-link" data-title="get-address">GET address</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#scan" class="toc-h1 toc-link" data-title="scan">Scan</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-upload" class="toc-h2 toc-link" data-title="post-upload">POST upload</a>
+                  </li>
+                  <li>
+                    <a href="#get-results" class="toc-h2 toc-link" data-title="get-results">GET results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -253,81 +302,130 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='introduction'>Introduction</h1><h2 id='facemap-chatacter-analysis-api'>Facemap Chatacter Analysis API</h2>
+<p>Draft of the API design. Goal of the API to handle Picture / Movie uploads and deliver analysis results back to the client.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<aside class="warning">This draft and the API´s are under construction. This document is supposed to be a basis for a discussion and a plan for building API v2</aside>
+<h1 id='endpoints'>Endpoints</h1><h3 id='production'>Production</h3>
+<p><code>GET http://api.facemap.com/v2</code></p>
+<h3 id='sandbox'>Sandbox</h3>
+<p><code>GET http://api_sandbox.facemap.com/v2</code></p>
 <h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+No decision yet made for authentication / security. Up to now, JWT seems to be the best option. Help needed here.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='registration'>Registration</h1>
+<p>Facemap needs to handle</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li>client</li>
+<li>app - app_id</li>
+<li>device - device_id</li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>The registration / subscription via website is mandatory.
+A client can create multiple apps.
+For each app will exist a name, a token and a shared secret.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<p>The token identifies the app.</p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET https://api.facemap.com/v2/device/&lt;device_id&gt;/register</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/device/&lt;device_id&gt;/register"</span>
+  -H <span class="s2">"Authorization: Token &lt;token&gt;"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Success HTTP Response Code 200:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"818184b8-670e-4444-b094-2317b7990b45"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<blockquote>
+<p>Error HTTP Response Code 400:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"device already registered"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='people'>People</h1><h3 id='get-me'>GET me</h3>
+<p>&quot;Me&quot; is a Person Object with the &quot;me&quot; flag set to true. For one device there can only be marked one person as &quot;me&quot;.</p>
+<h4 id='http-request-2'>HTTP Request</h4>
+<p><code>GET http://api.facemap.com/v2/me</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/me"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09457ac7-5c64-4d5d-b13d-ab6f23e9c915"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter Salomon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salomon"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/facemap/data/views/001f2675-2a95-4add-8fe3-52a82be0826f/390ff1a1-9e3f-4f3f-950f-497a324db47b.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
+  </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328260325212"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lgt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.8198261616"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h2 id='get-all-people'>GET all people</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/people"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"people_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"people"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09457ac7-5c64-4d5d-b13d-ab6f23e9c915"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter Salomon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salomon"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/facemap/data/views/001f2675-2a95-4add-8fe3-52a82be0826f/390ff1a1-9e3f-4f3f-950f-497a324db47b.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328260325212"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lgt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.8198261616"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d54281a0-6538-4e13-a571-70add0001b8e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carinda Bourgeois"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carinda"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bourgeois"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/facemap/data/views/001f2675-2a95-4add-8fe3-52a82be0826f/390ff1a1-9e3f-4f3f-950f-497a324db47b.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21 07:43:19.537821"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21 07:43:19.537821"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328260325212"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lgt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.8198261616"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all people, captured with this device.
+The maximum people amount is 200. For more use pagination.</p>
+<h4 id='http-request-3'>HTTP Request</h4>
+<p><code>GET http://api.facemap.com/v2/people</code></p>
+
+<p><code>GET http://api.facemap.com/v2/people?page=2&amp;per_page=10</code></p>
+<h4 id='query-parameters'>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -336,106 +434,408 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
+<td>page</td>
+<td>1</td>
+<td>Pagination object, number of the page</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>10</td>
+<td>Amount of items of a page</td>
+</tr>
+</tbody></table>
+<h1 id='matches'>Matches</h1><h3 id='get-matches'>GET matches</h3>
+<p>A &quot;match&quot; is a person object, captured with other devices. How much another person is a match is determined by a match score, which is related to the latest result of &quot;me&quot; and the match category.</p>
+
+<p>The maximum matches amount is 200. For more use pagination.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/matches"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"matches_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09457ac7-5c64-4d5d-b13d-ab6f23e9c915"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joy Schneemann"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schneemann"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/facemap/data/views/001f2675-2a95-4add-8fe3-52a82be0826f/390ff1a1-9e3f-4f3f-950f-497a324db47b.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 22:09:55.946267"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328260325212"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lgt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.8198261616"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"match_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="w">
+  </span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d54281a0-6538-4e13-a571-70add0001b8e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carinda Bourgeois"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carinda"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bourgeois"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/facemap/data/views/001f2675-2a95-4add-8fe3-52a82be0826f/390ff1a1-9e3f-4f3f-950f-497a324db47b.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="w">
+    </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21 07:43:19.537821"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-21 07:43:19.537821"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_location"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328260325212"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lgt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.8198261616"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"match_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"match_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personal"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='http-request-4'>HTTP Request</h4>
+<p><code>GET http://api.facemap.com/v2/matches</code></p>
+
+<p><code>GET http://api.facemap.com/v2/matches?page=2&amp;per_page=10&amp;near_me=10&amp;matching=70&amp;gender=female</code></p>
+<h4 id='query-parameters-2'>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td>Pagination object, number of the page</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>10</td>
+<td>Amount of items of a page</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>-</td>
+<td> &quot;male&quot; or &quot;female&quot;</td>
+</tr>
+<tr>
+<td>near_me</td>
+<td>5</td>
+<td>matching people within a distance of x miles</td>
+</tr>
+<tr>
+<td>matchscore</td>
+<td>30</td>
+<td> minimum percentage of match score</td>
+</tr>
+<tr>
+<td>match_category</td>
+<td> &quot;personal&quot;</td>
+<td>The category, the match_score is related to</td>
+</tr>
+<tr>
+<td>age</td>
+<td>&quot;same&quot;</td>
+<td>the age of the matching people. Options: &quot;same&quot;, &quot;about_same&quot;, &quot;15-20&quot;, &quot;20-25&quot;, &quot;25-30&quot;, &quot;30-35&quot;, &quot;35-40&quot;, &quot;45-50&quot;, &quot;55-60&quot;, &quot;65-70&quot;, &quot;70+&quot;</td>
+</tr>
+</tbody></table>
+<h1 id='locations'>Locations</h1><h3 id='post-location'>POST location</h3>
+<p>This endpoint receives the location of a device. The device should send the location on a regular basis.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/location/"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;, Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s2">"{'lon': '-118.8198261616', 'lat': '34.0328260325212'}"</span>
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{}</span><span class="w">
+</span></code></pre><h3 id='get-locations'>GET locations</h3>
+<p>The locations of a device (and therefore the owners person) in a list</p>
+
+<p><code>GET http://api.facemap.com/v2/&lt;device_id&gt;/locations</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/locations&amp;address=true"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"locations_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">525</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6b18dac9-6882-4519-968a-f844b8528191"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1b2f36d1-84f9-4504-9126-7b99cc1886e8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328272059877"</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.819855162984"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12 20:21:40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"distance_to_me"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.45</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec21781a-6204-407e-ae7c-bade6357c497"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malibu"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90265"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sea Star Drive"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"house_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6411"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ea17d446-3d1d-4899-8f88-0c3f36aa8efc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34.0328272059877"</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-118.819855162984"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12 20:21:30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"distance_to_me"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.44</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4df96d0a-16a8-48b3-b624-5609270947a5"</span><span class="w">
+          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malibu"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90265"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sea Star Drive"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"house_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6411"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+
+</span></code></pre><h4 id='query-parameters-3'>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>address</td>
 <td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>include the address of the geocoordinates</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>page</td>
+<td>1</td>
+<td>Pagination object, number of the page</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>10</td>
+<td>Amount of items of a page</td>
 </tr>
 </tbody></table>
+<h3 id='get-address'>GET address</h3>
+<p>receive the address of a specific location</p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p><code>GET http://api.facemap.com/v2/locations/{location_id}/address</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/locations&amp;address=true"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Success HTTP Response Code 200</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4df96d0a-16a8-48b3-b624-5609270947a5"</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"region_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Malibu"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90265"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sea Star Drive"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"house_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6411"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='scan'>Scan</h1>
+<p>A scan is either a movie of a captured face or a gazet of fotos of a captureing session. Since the analysation of either a movie or a gazet of images takes some time, the server responds with a scan_id, which will be used to poll the results.</p>
+<h3 id='post-upload'>POST upload</h3>
+<p><code>POST https://api.facemap.com/v2/&lt;device_id&gt;/scans/upload</code></p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scans/upload"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;, Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s2">"{'moveshot': '@video.mp4', 'front': '', left': '', 'right': '',</span><span class="se">\</span><span class="s2">
+   'top': '', 'bottom': '', lat': '34.0328260325212', </span><span class="se">\</span><span class="s2">
+   'lon': '-118.819855162984', 'owner': true}"</span>
+
+
+curl -X POST <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scans/upload"</span> <span class="se">\</span>
+ -H <span class="s2">"Authorization: &lt;token&gt;, Content-Type: application/json"</span> <span class="se">\</span>
+ -d <span class="s2">"{'moveshot': '', 'front': '@frontimage.jpg', left': '@leftimage.jpg', 'right': '@rightimage.jpg',</span><span class="se">\</span><span class="s2">
+  'top': '', 'bottom': '', lat': '34.0328260325212', </span><span class="se">\</span><span class="s2">
+  'lon': '-118.819855162984', 'owner': true}"</span>
+
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"scan_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9535adb0-69be-4b2b-9aef-3f147f5aed95"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='get-results'>GET results</h3>
+<p><code>GET https://api.facemap.com/v2/&lt;device_id&gt;/scans/&lt;scan_id&gt;</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.facemap.com/v2/&lt;device_id&gt;/scans/&lt;scan_id&gt;"</span>
+  -H <span class="s2">"Authorization: &lt;token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Success HTTP Response Code 200; analysis in progress</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in progress"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a509a183-152d-4601-b51e-5bf313c998bc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09457ac7-5c64-4d5d-b13d-ab6f23e9c915"</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-27 00:08:12"</span><span class="w">
+  </span><span class="s2">"analysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<blockquote>
+<p>Success HTTP Response Code 200; analysis done</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"done"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a509a183-152d-4601-b51e-5bf313c998bc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09457ac7-5c64-4d5d-b13d-ab6f23e9c915"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-27 00:08:12"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"analysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"archetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inventor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skill in action"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skill-in-action"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">88.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You need some time to decide on a course </span><span class="err">\</span><span class="s2">
+              of action. You often collect too much information and do </span><span class="err">\</span><span class="s2">
+              not set priorities. This hesitant behavior is a result of </span><span class="err">\</span><span class="s2">
+              your insecurity, and it will often cause difficulties </span><span class="err">\</span><span class="s2">
+              within your job. You simply are too afraid of doing the </span><span class="err">\</span><span class="s2">
+              wrong thing − both on a personal level and in the professional </span><span class="err">\</span><span class="s2">
+              sphere."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tipp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Take a pause more often and relax. All is good. You have </span><span class="err">\</span><span class="s2">
+              a good guttfeeling, you should trust it more."</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emotional intelligence"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emotional-intelligence"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">79.6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You generally do not consciously perceive your </span><span class="err">\</span><span class="s2">
+              intuitive hunches, yet, nevertheless, you act on the “good” or </span><span class="err">\</span><span class="s2">
+              “strange” feelings that often come about in the course of your </span><span class="err">\</span><span class="s2">
+              thoughts or observations. You then often attempt to question or </span><span class="err">\</span><span class="s2">
+              justify these impulses as having arisen from rational processes."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tipp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empathy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empathy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your joy in talking things out is healthy. When necessary </span><span class="err">\</span><span class="s2">
+              – for example, if you have to defend values or important projects – you </span><span class="err">\</span><span class="s2">
+              eagerly engage in verbal conflict. At the same time, you always remain </span><span class="err">\</span><span class="s2">
+              constructive and listen carefully to your colleagues’ and employees’ arguments. </span><span class="err">\</span><span class="s2">
+              Your balanced empathy is revealed in situations involving people you know </span><span class="err">\</span><span class="s2">
+              well or are particularily fond of. This emotional level is in a healthy relationship </span><span class="err">\</span><span class="s2">
+              with your obective considerations, and, therefore, you can usually show a very appropriate response."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tipp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"And here some really good tipp for people without empathy."</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endurance"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empathy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your physical and psychological endurance is quite good. For this </span><span class="err">\</span><span class="s2">
+              reason you can concentrate well, though you do have to take regular breaks to </span><span class="err">\</span><span class="s2">
+              avoid overstrain.</span><span class="se">\r\n\r\n</span><span class="s2">In general, you actively pursue your goals and complete </span><span class="err">\</span><span class="s2">
+              your tasks with determination. You are nevertheless always able to react flexibly </span><span class="err">\</span><span class="s2">
+              to the working methods of your environment."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tipp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personality"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"strongest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"weakest_traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre><h4 id='query-parameters-4'>Query Parameters</h4>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Files</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>moveshot</td>
+<td>a movie containing stills</td>
+</tr>
+<tr>
+<td>front</td>
+<td>face in neutral position</td>
+</tr>
+<tr>
+<td>left</td>
+<td>face´s left side view</td>
+</tr>
+<tr>
+<td>right</td>
+<td> face´s right side view</td>
+</tr>
+<tr>
+<td>top</td>
+<td> face´s top view</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>face´s bottom view</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th> Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>owner</td>
+<td> Boolean (false, true); is this a scan of the owner of this device</td>
+</tr>
+<tr>
+<td>lat</td>
+<td> latitude</td>
+</tr>
+<tr>
+<td>lon</td>
+<td> logitude</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The FACEMAP API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -445,7 +845,7 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request -- Your request is invalid.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -453,15 +853,15 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The requested infois hidden. For administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified record could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access a record with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
@@ -469,7 +869,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Gone -- The requested resource has been removed from our servers.</td>
 </tr>
 <tr>
 <td>418</td>
@@ -477,7 +877,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too much! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
