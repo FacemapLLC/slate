@@ -107,7 +107,17 @@ curl "https://api.facemap.com/v2/me"
   "updated_at": "2017-02-01 22:09:55.946267",
   "last_location": [
     "lat": "34.0328260325212",
-    "lgt": "-118.8198261616"
+    "lgt": "-118.8198261616",
+    "address": {
+      "id": "ec21781a-6204-407e-ae7c-bade6357c497",
+      "country": "United States",
+      "country_code": "US",
+      "region_name": "California",
+      "city": "Malibu",
+      "zip": "90265",
+      "street": "Sea Star Drive",
+      "house_number": "6411"
+    }
   ]
 }
 
@@ -166,7 +176,17 @@ curl "https://api.facemap.com/v2/people"
     "updated_at": "2017-04-21 07:43:19.537821",
     "last_location": [
       "lat": "34.0328260325212",
-      "lgt": "-118.8198261616"
+      "lgt": "-118.8198261616",
+      "address": {
+        "id": "ec21781a-6204-407e-ae7c-bade6357c497",
+        "country": "United States",
+        "country_code": "US",
+        "region_name": "California",
+        "city": "Malibu",
+        "zip": "90265",
+        "street": "Sea Star Drive",
+        "house_number": "6411"
+      }
     ]
   ]
 }
